@@ -1,0 +1,1284 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hamat Healthcare — Your Partner in Health</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --white-color: #ffffff;
+            --primary-color: #1568A8;
+            /* medical blue  – was sage green  */
+            --secondary-color: #0B2C46;
+            /* deep navy     – was slate      */
+            --section-bg-color: #EAF3FA;
+            /* powder blue   – was cream      */
+            --custom-btn-bg-color: #1FB6A6;
+            /* teal accent   – was mustard    */
+            --custom-btn-bg-hover-color: #0F5A94;
+            /* deep blue     – was terracotta */
+            --dark-color: #0E2436;
+            --p-color: #5C7285;
+            --link-hover-color: #1FB6A6;
+
+            --body-font-family: 'DM Sans', sans-serif;
+
+            --h1-font-size: 42px;
+            --h2-font-size: 36px;
+            --h3-font-size: 28px;
+            --h4-font-size: 24px;
+            --h5-font-size: 22px;
+            --h6-font-size: 20px;
+            --p-font-size: 18px;
+            --menu-font-size: 16px;
+            --btn-font-size: 14px;
+
+            --border-radius-large: 100px;
+            --border-radius-medium: 20px;
+            --border-radius-small: 10px;
+
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-bold: 700;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--white-color);
+            font-family: var(--body-font-family);
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: var(--dark-color);
+            font-weight: var(--font-weight-bold);
+        }
+
+        h1 {
+            font-size: var(--h1-font-size);
+        }
+
+        h2 {
+            font-size: var(--h2-font-size);
+        }
+
+        h3 {
+            font-size: var(--h3-font-size);
+        }
+
+        h4 {
+            font-size: var(--h4-font-size);
+        }
+
+        p {
+            color: var(--p-color);
+            font-size: var(--p-font-size);
+            font-weight: var(--font-weight-normal);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        section {
+            position: relative;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-bg {
+            background-color: var(--section-bg-color);
+        }
+
+        /* ---------- buttons ---------- */
+        .custom-btn {
+            background: var(--custom-btn-bg-color);
+            border: 2px solid transparent;
+            border-radius: var(--border-radius-large);
+            color: var(--white-color) !important;
+            font-size: var(--btn-font-size);
+            font-weight: var(--font-weight-bold);
+            padding: 14px 34px;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            transition: all .3s ease;
+            display: inline-block;
+        }
+
+        .custom-btn:hover {
+            background: var(--custom-btn-bg-hover-color);
+            color: var(--white-color) !important;
+            transform: translateY(-2px);
+        }
+
+        .custom-border-btn {
+            background: transparent;
+            border: 2px solid var(--custom-btn-bg-color);
+            color: var(--custom-btn-bg-color) !important;
+        }
+
+        .custom-border-btn:hover {
+            background: var(--custom-btn-bg-color);
+            border-color: transparent;
+            color: var(--white-color) !important;
+        }
+
+        .custom-btn-group .link {
+            color: var(--white-color);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .custom-btn-group .link:hover {
+            color: var(--link-hover-color);
+        }
+
+        /* ---------- navbar ---------- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1030;
+            padding: 22px 0;
+            transition: all .35s ease;
+        }
+
+        .navbar.scrolled {
+            background: var(--white-color);
+            box-shadow: 0 10px 30px rgba(11, 44, 70, .1);
+            padding: 12px 0;
+        }
+
+        .navbar-brand,
+        .navbar-brand:hover {
+            font-size: var(--h4-font-size);
+            font-weight: var(--font-weight-bold);
+            display: flex;
+            align-items: center;
+            color: var(--white-color);
+        }
+
+        .navbar.scrolled .navbar-brand,
+        .navbar.scrolled .navbar-brand:hover {
+            color: var(--secondary-color);
+        }
+
+        .navbar-brand-image {
+            width: 44px;
+            height: 44px;
+        }
+
+        .navbar-brand-text {
+            margin-left: 10px;
+            line-height: 1.05;
+        }
+
+        .navbar-brand-text small {
+            display: block;
+            font-size: 11px;
+            font-weight: var(--font-weight-normal);
+            opacity: .8;
+        }
+
+        .navbar .nav-link {
+            color: var(--white-color);
+            font-weight: var(--font-weight-medium);
+            font-size: var(--menu-font-size);
+            margin: 0 12px;
+            position: relative;
+        }
+
+        .navbar.scrolled .nav-link {
+            color: var(--dark-color);
+        }
+
+        .navbar .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 2px;
+            background: var(--custom-btn-bg-color);
+            transition: width .25s ease;
+        }
+
+        .navbar .nav-link:hover::after,
+        .navbar .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* ---------- hero ---------- */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: linear-gradient(rgba(11, 44, 70, .35), rgba(11, 44, 70, .72)), url('https://hamat-a1q8.onrender.com/images/Hos.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .hero-section svg {
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 5;
+        }
+
+        .hero-section>svg {
+            top: 0;
+        }
+
+        .hero-section .container+svg {
+            bottom: -1px;
+            top: auto;
+        }
+
+        .hero-section .row {
+            position: relative;
+            z-index: 22;
+        }
+
+        .hero-eyebrow {
+            color: #BFE1F2;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            font-size: .85rem;
+        }
+
+        .cd-headline {
+            font-size: clamp(2rem, 4.2vw, 3rem);
+        }
+
+        .cd-headline .cd-words-wrapper {
+            display: inline-block;
+            position: relative;
+            vertical-align: top;
+        }
+
+        .cd-headline b {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            color: var(--custom-btn-bg-color);
+            white-space: nowrap;
+        }
+
+        .cd-headline b.is-visible {
+            position: relative;
+            opacity: 1;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, .95);
+            border-radius: var(--border-radius-medium);
+            padding: 1.6rem;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, .25);
+        }
+
+        #ecg-line {
+            width: 100%;
+            height: 70px;
+            display: block;
+        }
+
+        #ecg-path {
+            stroke: var(--custom-btn-bg-color);
+            stroke-width: 2.5;
+            fill: none;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw 3s linear infinite;
+        }
+
+        @keyframes draw {
+            0% {
+                stroke-dashoffset: 1000;
+            }
+
+            70% {
+                stroke-dashoffset: 0;
+            }
+
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .hero-card .vc-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: .9rem;
+            padding: .4rem 0;
+            border-top: 1px dashed rgba(11, 44, 70, .12);
+        }
+
+        .hero-card .vc-row:first-of-type {
+            border-top: none;
+        }
+
+        /* ---------- about / member blocks ---------- */
+        .member-block-image-wrap {
+            border-radius: var(--border-radius-medium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-block-image {
+            transition: all .4s ease;
+            width: 100%;
+            height: 290px;
+            object-fit: cover;
+        }
+
+        .member-block-image-wrap:hover .member-block-image {
+            transform: scale(1.12);
+        }
+
+        .member-block-image-wrap:hover .social-icon {
+            opacity: 1;
+        }
+
+        .member-block-image-wrap .social-icon {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white-color);
+            border-radius: var(--border-radius-large);
+            display: flex;
+            padding: 6px 10px;
+            opacity: 0;
+            transition: opacity .3s ease;
+            list-style: none;
+            margin: 0;
+        }
+
+        .social-icon-item {
+            margin: 0 4px;
+        }
+
+        .social-icon-link {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--section-bg-color);
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .85rem;
+        }
+
+        .social-icon-link:hover {
+            background: var(--custom-btn-bg-color);
+            color: #fff;
+        }
+
+        .member-block-info {
+            padding: 12px 4px;
+            display: flex;
+            align-items: center;
+        }
+
+        .member-block-info h4 {
+            font-size: var(--h5-font-size);
+            margin-bottom: 0;
+        }
+
+        .member-block-info p {
+            margin-bottom: 0;
+            color: var(--custom-btn-bg-color);
+            font-weight: 600;
+            font-size: .9rem;
+        }
+
+        /* ---------- wavy band ---------- */
+        .wave-band {
+            background: var(--secondary-color);
+            color: #fff;
+            position: relative;
+            padding: 70px 0;
+        }
+
+        .wave-band h2,
+        .wave-band p {
+            color: #fff;
+        }
+
+        .wave-band p {
+            opacity: .85;
+        }
+
+        .wave-band .input-group {
+            border-radius: var(--border-radius-large);
+            overflow: hidden;
+        }
+
+        .wave-band .input-group-text {
+            background: #fff;
+            border: none;
+            padding-left: 22px;
+            color: var(--secondary-color);
+        }
+
+        .wave-band .form-control {
+            border: none;
+            padding: 16px;
+        }
+
+        .wave-band button.form-control {
+            background: var(--custom-btn-bg-color);
+            color: #fff;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: var(--btn-font-size);
+            max-width: 190px;
+            flex: 0 0 auto;
+        }
+
+        .wave-band button.form-control:hover {
+            background: var(--custom-btn-bg-hover-color);
+        }
+
+        .wave-svg-top,
+        .wave-svg-bottom {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            line-height: 0;
+        }
+
+        .wave-svg-top {
+            top: -1px;
+        }
+
+        .wave-svg-bottom {
+            bottom: -1px;
+        }
+
+        /* ---------- service cards ---------- */
+        .svc-card {
+            background: #fff;
+            border-radius: var(--border-radius-medium);
+            overflow: hidden;
+            height: 100%;
+            box-shadow: 0 10px 30px rgba(11, 44, 70, .08);
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .svc-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 50px rgba(11, 44, 70, .15);
+        }
+
+        .svc-card img {
+            height: 190px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .svc-card .body {
+            padding: 1.5rem;
+        }
+
+        .svc-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: var(--border-radius-large);
+            background: var(--section-bg-color);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* ---------- events / camps ---------- */
+        .event-block {
+            background: #fff;
+            border-radius: var(--border-radius-medium);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(11, 44, 70, .08);
+            margin-bottom: 1.6rem;
+        }
+
+        .event-date {
+            background: var(--primary-color);
+            color: #fff;
+            border-radius: var(--border-radius-medium);
+            text-align: center;
+            padding: 1rem;
+            width: 88px;
+        }
+
+        .event-date .d {
+            font-size: 1.6rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .event-date .m {
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+        }
+
+        /* ---------- testimonials ---------- */
+        .quote-card {
+            background: var(--section-bg-color);
+            border-radius: var(--border-radius-medium);
+            padding: 2.2rem;
+        }
+
+        .quote-card i.bi-quote {
+            color: var(--custom-btn-bg-color);
+            font-size: 2rem;
+        }
+
+        .quote-photo {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .carousel-indicators [data-bs-target] {
+            background-color: var(--primary-color);
+        }
+
+        /* ---------- contact ---------- */
+        .contact-form .form-floating {
+            margin-bottom: 1rem;
+        }
+
+        .contact-form .form-control {
+            border-radius: var(--border-radius-small);
+            border: 1px solid rgba(11, 44, 70, .15);
+        }
+
+        .contact-form textarea.form-control {
+            height: 130px;
+        }
+
+        .contact-form button.form-control {
+            background: var(--custom-btn-bg-color);
+            color: #fff;
+            border-radius: var(--border-radius-large);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: var(--btn-font-size);
+            cursor: pointer;
+            padding: 14px;
+            margin-top: .5rem;
+        }
+
+        .contact-form button.form-control:hover {
+            background: var(--custom-btn-bg-hover-color);
+        }
+
+        .contact-info {
+            background: var(--secondary-color);
+            border-radius: var(--border-radius-medium);
+            padding: 2rem;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info a {
+            color: var(--custom-btn-bg-color);
+        }
+
+        .contact-info-footer a {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .contact-link {
+            color: inherit;
+        }
+
+        /* ---------- footer ---------- */
+        .site-footer {
+            background: var(--secondary-color);
+            color: #cfe0ec;
+            padding-top: 90px;
+            position: relative;
+        }
+
+        .site-footer h5 {
+            color: #fff;
+        }
+
+        .site-footer a {
+            color: #cfe0ec;
+        }
+
+        .site-footer a:hover {
+            color: var(--custom-btn-bg-color);
+        }
+
+
+        .footer-links a {
+            display: block;
+            margin-bottom: .6rem;
+        }
+
+        .social-icon.footer-social {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-social .social-icon-link {
+            background: rgba(255, 255, 255, .08);
+            color: #fff;
+        }
+
+        .footer-social .social-icon-link:hover {
+            background: var(--custom-btn-bg-color);
+        }
+
+        .copyright-text {
+            font-size: .85rem;
+            opacity: .75;
+        }
+
+        .wave-svg-footer {
+            position: absolute;
+            top: -1px;
+            left: 0;
+            width: 100%;
+            line-height: 0;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (max-width:991px) {
+            .navbar {
+                background: var(--secondary-color);
+            }
+
+            .navbar .nav-link {
+                color: #fff;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#home">
+                    <span class="navbar-brand-image d-inline-flex align-items-center justify-content-center"
+                        style="width:44px;height:44px;">
+                        <img src="assets/images/Logo.png" alt="Hamat Healthcare Logo"
+                            style="width: 44px; height: 44px; object-fit: contain;">
+                    </span>
+                    <span class="navbar-brand-text">Hamat<small>Healthcare</small></span>
+                </a>
+
+                <div class="d-lg-none ms-auto me-3">
+                    <a class="btn custom-btn custom-border-btn btn-sm"
+                        href="https://wa.me/254721600700?text=Hi%20Hamat%20Healthcare%2C%20I%27d%20like%20to%20book%20an%20appointment."
+                        target="_blank" rel="noopener">Book Appointment</a>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-lg-auto">
+                        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contacts</a></li>
+                        <li class="nav-item"><a class="nav-link" href="medicine.html">Pharmacy</a></li>
+                    </ul>
+                    <div class="d-none d-lg-block ms-lg-3">
+                        <a class="btn custom-btn custom-border-btn btn-sm"
+                            href="https://wa.me/254721600700?text=Hi%20Hamat%20Healthcare%2C%20I%27d%20like%20to%20book%20an%20appointment."
+                            target="_blank" rel="noopener">Book Appointment</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- HERO -->
+        <header class="hero-section" id="home">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#0B2C46"
+                    d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,0L0,0Z">
+                </path>
+            </svg>
+
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-5 mb-lg-0 reveal">
+                        <div class="hero-eyebrow mb-3">Open every day · 24 hours</div>
+                        <h2 class="text-white">Welcome to</h2>
+                        <h1 class="cd-headline text-white mb-4 pb-2">
+                            <span>Hamat is</span>
+                            <span class="cd-words-wrapper" id="rotWrap" style="min-width:230px;">
+                                <b class="is-visible">Caring</b>
+                                <b>Modern</b>
+                                <b>Always Open</b>
+                            </span>
+                        </h1>
+                        <div class="custom-btn-group d-flex flex-wrap align-items-center gap-3">
+                            <a class="btn custom-btn"
+                                href="https://wa.me/254721600700?text=Hi%20Hamat%20Healthcare%2C%20I%27d%20like%20to%20book%20an%20appointment."
+                                target="_blank" rel="noopener">Book Appointment</a>
+                            <a href="#about" class="link">Our Story</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 reveal">
+                        <div class="hero-card">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <strong>Live Care Status</strong>
+                                <span class="badge rounded-pill"
+                                    style="background:var(--section-bg-color);color:var(--primary-color);">Clinic
+                                    Open</span>
+                            </div>
+                            <svg id="ecg-line" viewBox="0 0 400 70" preserveAspectRatio="none">
+                                <path id="ecg-path"
+                                    d="M0,35 L40,35 L55,8 L70,62 L85,35 L140,35 L155,18 L170,52 L185,35 L400,35" />
+                            </svg>
+                            <div class="vc-row"><span>Current date &amp; time</span><strong id="liveDateTime">—</strong>
+                            </div>
+                            <div class="vc-row"><span>Doctors available</span><strong
+                                    style="color:var(--custom-btn-bg-color)">● Available</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ffffff"
+                    d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L0,320Z">
+                </path>
+            </svg>
+        </header>
+
+        <!-- ABOUT -->
+        <section class="section-padding" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mb-5">
+                        <h2>About Hamat</h2>
+                    </div>
+
+                    <div class="col-lg-5 me-auto mb-4 mb-lg-0 reveal">
+                        <h3 class="mb-3">Care built around trust</h3>
+                        <p>Hamat Healthcare brings specialist doctors, modern diagnostics, and home-based care together
+                            under one roof, so your family gets the right care exactly when it's needed.</p>
+                        <p>From routine check-ups to complex home nursing, our clinicians keep every patient at the
+                            centre of the decision — every visit, every time.</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 reveal">
+                        <div class="member-block">
+                            <div class="member-block-image-wrap">
+                                <img src="https://hamat-a1q8.onrender.com/images/Dr.Adnaanimgwork.png"
+                                    class="member-block-image" alt="Dr. Adnaan Mustafa">
+                                <ul class="social-icon">
+                                    <li class="social-icon-item"><a
+                                            href="https://www.linkedin.com/in/adnaan-mustafa-54025336" target="_blank"
+                                            class="social-icon-link"><i class="bi bi-linkedin"></i></a></li>
+                                    <li class="social-icon-item"><a href="https://www.instagram.com/adnaanezzi/"
+                                            target="_blank" class="social-icon-link"><i class="bi bi-instagram"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="member-block-info">
+                                <h4>Dr. Adnaan</h4>
+                                <p class="ms-auto">Paediatrician</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 reveal">
+                        <div class="member-block">
+                            <div class="member-block-image-wrap">
+                                <img src="https://hamat-a1q8.onrender.com/images/Tasneemphoto1.png"
+                                    class="member-block-image" alt="Dr. Tasneem Yamani">
+                                <ul class="social-icon">
+                                    <li class="social-icon-item"><a
+                                            href="https://ke.linkedin.com/in/tasneem-yamani-nurani-710b42122"
+                                            target="_blank" class="social-icon-link"><i class="bi bi-linkedin"></i></a>
+                                    </li>
+                                    <li class="social-icon-item"><a
+                                            href="https://www.instagram.com/hamat_healthcare/reel/Cy26_wYtCT7/"
+                                            target="_blank" class="social-icon-link"><i class="bi bi-instagram"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="member-block-info">
+                                <h4>Dr. Tasneem</h4>
+                                <p class="ms-auto">Geriatrician</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WAVE NEWSLETTER BAND -->
+        <section class="wave-band">
+            <svg class="wave-svg-top" viewBox="0 0 1440 60" preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill="#0B2C46" d="M0,32L360,0L720,32L1080,0L1440,32L1440,0L0,0Z"></path>
+            </svg>
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-7 reveal">
+                        <h2 class="mb-3">Get health tips &amp; appointment reminders</h2>
+                        <p class="mb-4">Join our mailing list for seasonal health advice, clinic updates, and screening
+                            camp dates near you.</p>
+                        <form class="mt-2" onsubmit="return handleNewsletter(event)">
+                            <div class="input-group input-group-lg mx-auto" style="max-width:520px;">
+                                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                <input type="email" class="form-control" placeholder="Email address" required>
+                                <button type="submit" class="form-control">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <svg class="wave-svg-bottom" viewBox="0 0 1440 60" preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill="#ffffff" d="M0,32L360,0L720,32L1080,0L1440,32L1440,60L0,60Z"></path>
+            </svg>
+        </section>
+
+        <!-- NEWS -->
+        <section class="section-padding" id="news">
+            <div class="container">
+                <div class="col-12 text-center mb-5 reveal">
+                    <h2>Latest News &amp; Health Tips</h2>
+                    <p class="mt-2">Updates, articles, and announcements from the Hamat Healthcare team.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4 reveal">
+                        <div class="svc-card">
+                            <div class="body">
+                                <div class="svc-icon"><i class="bi bi-newspaper"></i></div>
+                                <h5>Understanding Seasonal Flu</h5>
+                                <p class="mb-0">Simple steps to protect your family as flu season approaches, and when
+                                    it's time to see a doctor.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 reveal">
+                        <div class="svc-card">
+                            <div class="body">
+                                <div class="svc-icon"><i class="bi bi-heart-pulse"></i></div>
+                                <h5>New Cardiac Screening Package</h5>
+                                <p class="mb-0">Hamat now offers same-day cardiac screening with results reviewed by a
+                                    specialist within 24 hours.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 reveal">
+                        <div class="svc-card">
+                            <div class="body">
+                                <div class="svc-icon"><i class="bi bi-person-check"></i></div>
+                                <h5>Meet Dr. Hassan Bharmal</h5>
+                                <p class="mb-0">Our General Surgeon and Endoscopist has joined the specialist
+                                    consultation team — read about his areas of focus.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="section-padding section-bg" id="services">
+            <div class="container">
+                <div class="col-12 text-center mb-5 reveal">
+                    <h2>Our Services</h2>
+                    <p class="mt-2">Care that meets you where you are.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4 reveal">
+                        <div class="svc-card">
+                            <img src="https://hamat-a1q8.onrender.com/images/lab.jpg" alt="Laboratory">
+                            <div class="body">
+                                <div class="svc-icon"><i class="bi bi-clipboard2-pulse"></i></div>
+                                <h5>Laboratory</h5>
+                                <p class="mb-0">Fast, accurate diagnostics so treatment can start without delay.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 reveal">
+                        <div class="svc-card">
+                            <img src="https://hamat-a1q8.onrender.com/images/Sha.jpg" alt="Operation Theatre">
+                            <div class="body">
+                                <div class="svc-icon"><i class="bi bi-heart-pulse"></i></div>
+                                <h5>Operation Theatre</h5>
+                                <p class="mb-0">A safe, fully-equipped surgical suite backed by experienced staff.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 reveal">
+                        <div class="svc-card">
+                            <img src="https://hamat-a1q8.onrender.com/images/geriatic%20care.jpeg" alt="Geriatric Care">
+                            <div class="body">
+                                <div class="svc-icon"><i class="bi bi-person-heart"></i></div>
+                                <h5>Geriatric Care</h5>
+                                <p class="mb-0">Specialised, dignified attention for elderly patients at home.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 reveal">
+                        <div class="svc-card">
+                            <img src="https://hamat-a1q8.onrender.com/images/consaltation.webp"
+                                alt="Specialist Consultation">
+                            <div class="body">
+                                <div class="svc-icon"><i class="bi bi-person-badge"></i></div>
+                                <h5>Specialist Consultation</h5>
+                                <p class="mb-0">Expert assessments and treatment plans tailored to you.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 reveal">
+                        <div class="svc-card">
+                            <img src="https://hamat-a1q8.onrender.com/images/homecare.jpeg" alt="Home Care">
+                            <div class="body">
+                                <div class="svc-icon"><i class="bi bi-house-heart"></i></div>
+                                <h5>Home Care</h5>
+                                <p class="mb-0">Professional, personalised healthcare in the comfort of home.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 reveal">
+                        <div class="svc-card">
+                            <img src="https://hamat-a1q8.onrender.com/images/mater.jpeg" alt="Maternal Care">
+                            <div class="body">
+                                <div class="svc-icon"><i class="bi bi-flower1"></i></div>
+                                <h5>Maternal Care</h5>
+                                <p class="mb-0">Full support through pregnancy, delivery, and recovery.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHARMACY -->
+        <section class="section-padding" id="pharmacy">
+            <div class="container">
+                <div class="col-12 text-center mb-5 reveal">
+                    <h2>Hamat Pharmacy</h2>
+                    <p class="mt-2">Prescription and over-the-counter medicine, ready for pickup or delivered to your
+                        door.</p>
+                </div>
+
+                <div class="event-block reveal">
+                    <div class="row g-0 align-items-center p-3 p-lg-4">
+                        <div class="col-auto">
+                            <div class="event-date d-flex align-items-center justify-content-center"
+                                style="width:72px;">
+                                <i class="bi bi-capsule" style="font-size:1.6rem;"></i>
+                            </div>
+                        </div>
+                        <div class="col ps-4">
+                            <h5 class="mb-1">Prescription Refills</h5>
+                            <p class="mb-0">Send us your prescription and it'll be ready for same-day pickup.</p>
+                        </div>
+                        <div class="col-auto"><a href="#contact" class="btn custom-btn">Order Now</a></div>
+                    </div>
+                </div>
+
+                <div class="event-block reveal">
+                    <div class="row g-0 align-items-center p-3 p-lg-4">
+                        <div class="col-auto">
+                            <div class="event-date d-flex align-items-center justify-content-center"
+                                style="width:72px;">
+                                <i class="bi bi-bag-heart" style="font-size:1.6rem;"></i>
+                            </div>
+                        </div>
+                        <div class="col ps-4">
+                            <h5 class="mb-1">Over-the-Counter Medicine</h5>
+                            <p class="mb-0">Everyday essentials, vitamins, and family health products in stock.</p>
+                        </div>
+                        <div class="col-auto"><a href="#contact" class="btn custom-btn">Order Now</a></div>
+                    </div>
+                </div>
+
+                <div class="event-block reveal">
+                    <div class="row g-0 align-items-center p-3 p-lg-4">
+                        <div class="col-auto">
+                            <div class="event-date d-flex align-items-center justify-content-center"
+                                style="width:72px;">
+                                <i class="bi bi-truck" style="font-size:1.6rem;"></i>
+                            </div>
+                        </div>
+                        <div class="col ps-4">
+                            <h5 class="mb-1">Home Delivery</h5>
+                            <p class="mb-0">Same-day medicine delivery across Ruiru and surrounding areas.</p>
+                        </div>
+                        <div class="col-auto"><a href="#contact" class="btn custom-btn">Order Now</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="section-padding section-bg">
+            <div class="container">
+                <div class="col-12 text-center mb-5 reveal">
+                    <h2>What Our Patients Say</h2>
+                </div>
+                <div id="testiCarousel" class="carousel slide reveal" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-7">
+                                    <div class="quote-card text-center">
+                                        <i class="bi bi-quote"></i>
+                                        <p class="mt-2 mb-3">The home nursing team was exceptional — professional,
+                                            caring, and always attentive to my mother's needs.</p>
+                                        <img src="https://hamat-a1q8.onrender.com/images/personn.jpeg"
+                                            class="quote-photo mb-2" alt="James W.">
+                                        <div><strong>James W.</strong>
+                                            <div class="small">Home Nursing Patient</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-7">
+                                    <div class="quote-card text-center">
+                                        <i class="bi bi-quote"></i>
+                                        <p class="mt-2 mb-3">After my surgery, the physiotherapy team helped me recover
+                                            quickly with a plan built around my pace.</p>
+                                        <img src="https://hamat-a1q8.onrender.com/images/personnn.jpeg"
+                                            class="quote-photo mb-2" alt="Mary K.">
+                                        <div><strong>Mary K.</strong>
+                                            <div class="small">Physiotherapy Patient</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-7">
+                                    <div class="quote-card text-center">
+                                        <i class="bi bi-quote"></i>
+                                        <p class="mt-2 mb-3">The maternal care I received was outstanding — supportive
+                                            doctors and nurses at every stage.</p>
+                                        <img src="https://hamat-a1q8.onrender.com/images/person.jpeg"
+                                            class="quote-photo mb-2" alt="Tabitha Njeri">
+                                        <div><strong>Tabitha Njeri</strong>
+                                            <div class="small">Maternal Care Patient</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center gap-2 mt-4">
+                        <button class="btn custom-btn custom-border-btn btn-sm" data-bs-target="#testiCarousel"
+                            data-bs-slide="prev"><i class="bi bi-arrow-left"></i></button>
+                        <button class="btn custom-btn custom-border-btn btn-sm" data-bs-target="#testiCarousel"
+                            data-bs-slide="next"><i class="bi bi-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section-padding" id="contact">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-6 reveal">
+                        <form class="contact-form" onsubmit="return handleContactSubmit(event)">
+                            <h2 class="mb-4">Contact Hamat</h2>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating"><input type="text" class="form-control" id="cf-name"
+                                            placeholder="Full name" required><label for="cf-name">Full name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating"><input type="email" class="form-control" id="cf-email"
+                                            placeholder="Email" required><label for="cf-email">Email address</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating"><textarea class="form-control" id="cf-msg"
+                                            placeholder="Message" required></textarea><label
+                                            for="cf-msg">Message</label></div>
+                                </div>
+                                <div class="col-12"><button type="submit" class="form-control">Send Message</button>
+                                </div>
+                            </div>
+                            <div id="contactSuccess" class="alert alert-success mt-3 d-none"><i
+                                    class="bi bi-check-circle me-1"></i>Thanks — we'll be in touch shortly.</div>
+                        </form>
+                    </div>
+                    <div class="col-lg-6 reveal">
+                        <div class="contact-info">
+                            <strong style="font-size:1.2rem;">Membly, Ruiru Eastern By-Pass</strong>
+                            <p class="mt-3 mb-1"><a href="tel:+254721600700" class="contact-link"><i
+                                        class="bi bi-telephone me-2"></i>+254 721 600700</a></p>
+                            <p class="mb-4"><a href="mailto:info@hamathealthcare.com" class="contact-link"><i
+                                        class="bi bi-envelope me-2"></i>info@hamathealthcare.com</a></p>
+                            <div class="contact-info-footer"><a href="#"><i class="bi bi-signpost-2 me-1"></i> Get
+                                    Directions</a></div>
+                            <img src="https://hamat-a1q8.onrender.com/images/WorldMap.svg" class="img-fluid mt-4" alt=""
+                                onerror="this.style.display='none'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 me-auto mb-5 mb-lg-0">
+                    <a class="navbar-brand" href="#home" style="color:#fff;">
+                        <span class="navbar-brand-image d-inline-flex align-items-center justify-content-center"
+                            style="width:44px;height:44px;"><img src="assets/images/Logo.png"
+                                alt="Hamat Healthcare Logo"
+                                style="width: 44px; height: 44px; object-fit: contain;"></span>
+                        <span class="navbar-brand-text">Hamat<small style="color:#cfe0ec;">Healthcare</small></span>
+                    </a>
+                    <p class="mt-3">Committed to quality, patient-centred healthcare — every day of the week, in the
+                        clinic and at home.</p>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <h5 class="mb-4">Open Hours</h5>
+                    <p class="d-flex border-bottom pb-3 mb-3" style="border-color:rgba(255,255,255,.1) !important;">
+                        <span class="me-auto">Mon–Sun</span>24 hours
+                    </p>
+                    <p class="copyright-text">© 2026 Hamat Healthcare</p>
+                </div>
+                <div class="col-lg-3 col-6 ms-auto">
+                    <h5 class="mb-4">Follow Us</h5>
+                    <ul class="social-icon footer-social mb-3">
+                        <li class="social-icon-item"><a href="https://www.facebook.com/61565940900209" target="_blank"
+                                class="social-icon-link"><i class="bi bi-facebook"></i></a></li>
+                        <li class="social-icon-item"><a href="https://x.com/Hamatealthcare" target="_blank"
+                                class="social-icon-link"><i class="bi bi-twitter-x"></i></a></li>
+                        <li class="social-icon-item"><a href="https://www.instagram.com/hamat_healthcare/"
+                                target="_blank" class="social-icon-link"><i class="bi bi-instagram"></i></a></li>
+                        <li class="social-icon-item"><a href="https://www.linkedin.com/company/105089580/"
+                                target="_blank" class="social-icon-link"><i class="bi bi-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between border-top py-4 mt-4"
+                style="border-color:rgba(255,255,255,.1) !important;">
+                <p class="copyright-text mb-0">All Rights Reserved.</p>
+                <p class="copyright-text mb-0">Design language inspired by TemplateMo's Tiya Golf Club (free template)
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // navbar scroll state
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 30));
+
+        // active link on scroll
+        const sections = document.querySelectorAll('section[id], header[id]');
+        const navLinks = document.querySelectorAll('.navbar .nav-link');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(sec => { if (window.scrollY >= sec.offsetTop - 140) current = sec.id; });
+            navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
+        });
+
+        // reveal on scroll
+        const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); }), { threshold: .15 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+        // rotating headline words (Tiya-style animated headline, simplified)
+        (function () {
+            const words = document.querySelectorAll('#rotWrap b');
+            let i = 0;
+            setInterval(() => {
+                words[i].classList.remove('is-visible');
+                i = (i + 1) % words.length;
+                words[i].classList.add('is-visible');
+            }, 2200);
+        })();
+
+        // live date & time in the hero care-status card
+        (function () {
+            const el = document.getElementById('liveDateTime');
+            function tick() {
+                const now = new Date();
+                const dateStr = now.toLocaleDateString(undefined, { weekday: 'short', day: '2-digit', month: 'short', year: 'numeric' });
+                const timeStr = now.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+                el.textContent = dateStr + ' · ' + timeStr;
+            }
+            tick();
+            setInterval(tick, 1000);
+        })();
+
+        function handleContactSubmit(e) { e.preventDefault(); document.getElementById('contactSuccess').classList.remove('d-none'); e.target.reset(); return false; }
+        function handleNewsletter(e) { e.preventDefault(); e.target.querySelector('input').value = ''; alert('Subscribed! Watch your inbox for health tips.'); return false; }
+    </script>
+</body>
+
+</html>

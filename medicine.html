@@ -1,0 +1,1255 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Order Medicines | Hamat Healthcare</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --white-color: #ffffff;
+            --primary-color: #1568A8;
+            --secondary-color: #0B2C46;
+            --section-bg-color: #EAF3FA;
+            --custom-btn-bg-color: #1FB6A6;
+            --custom-btn-bg-hover-color: #0F5A94;
+            --dark-color: #0E2436;
+            --p-color: #5C7285;
+            --link-hover-color: #1FB6A6;
+
+            --body-font-family: 'DM Sans', sans-serif;
+
+            --h1-font-size: 42px;
+            --h2-font-size: 36px;
+            --h3-font-size: 28px;
+            --h4-font-size: 24px;
+            --h5-font-size: 22px;
+            --h6-font-size: 20px;
+            --p-font-size: 18px;
+            --menu-font-size: 16px;
+            --btn-font-size: 14px;
+
+            --border-radius-large: 100px;
+            --border-radius-medium: 20px;
+            --border-radius-small: 10px;
+
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-bold: 700;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--white-color);
+            font-family: var(--body-font-family);
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: var(--dark-color);
+            font-weight: var(--font-weight-bold);
+        }
+
+        h1 {
+            font-size: var(--h1-font-size);
+        }
+
+        h2 {
+            font-size: var(--h2-font-size);
+        }
+
+        h3 {
+            font-size: var(--h3-font-size);
+        }
+
+        h4 {
+            font-size: var(--h4-font-size);
+        }
+
+        p {
+            color: var(--p-color);
+            font-size: var(--p-font-size);
+            font-weight: var(--font-weight-normal);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        section {
+            position: relative;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-bg {
+            background-color: var(--section-bg-color);
+        }
+
+        /* ---------- topbar ---------- */
+        .top-bar {
+            background: var(--secondary-color);
+            color: #cfe0ec;
+            font-size: .85rem;
+            padding: 8px 0;
+        }
+
+        .top-bar a {
+            color: #cfe0ec;
+        }
+
+        .top-bar a:hover {
+            color: var(--custom-btn-bg-color);
+        }
+
+        /* ---------- buttons ---------- */
+        .custom-btn {
+            background: var(--custom-btn-bg-color);
+            border: 2px solid transparent;
+            border-radius: var(--border-radius-large);
+            color: var(--white-color) !important;
+            font-size: var(--btn-font-size);
+            font-weight: var(--font-weight-bold);
+            padding: 14px 34px;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            transition: all .3s ease;
+            display: inline-block;
+        }
+
+        .custom-btn:hover {
+            background: var(--custom-btn-bg-hover-color);
+            color: var(--white-color) !important;
+            transform: translateY(-2px);
+        }
+
+        .custom-border-btn {
+            background: transparent;
+            border: 2px solid var(--custom-btn-bg-color);
+            color: var(--custom-btn-bg-color) !important;
+        }
+
+        .custom-border-btn:hover {
+            background: var(--custom-btn-bg-color);
+            border-color: transparent;
+            color: var(--white-color) !important;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            border-radius: var(--border-radius-large);
+            color: #fff !important;
+            font-size: var(--btn-font-size);
+            font-weight: var(--font-weight-bold);
+            padding: 10px 20px;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all .25s ease;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1DA851;
+            color: #fff !important;
+            transform: translateY(-2px);
+        }
+
+        /* ---------- navbar ---------- */
+        .navbar {
+            position: fixed;
+            top: 32px;
+            left: 0;
+            right: 0;
+            z-index: 1030;
+            padding: 18px 0;
+            transition: all .35s ease;
+            background: var(--secondary-color);
+        }
+
+        .navbar.scrolled {
+            top: 0;
+            background: var(--white-color);
+            box-shadow: 0 10px 30px rgba(11, 44, 70, .1);
+            padding: 12px 0;
+        }
+
+        .navbar-brand,
+        .navbar-brand:hover {
+            font-size: var(--h4-font-size);
+            font-weight: var(--font-weight-bold);
+            display: flex;
+            align-items: center;
+            color: var(--white-color);
+        }
+
+        .navbar.scrolled .navbar-brand,
+        .navbar.scrolled .navbar-brand:hover {
+            color: var(--secondary-color);
+        }
+
+        .navbar-brand-image {
+            width: 44px;
+            height: 44px;
+        }
+
+        .navbar-brand-text {
+            margin-left: 10px;
+            line-height: 1.05;
+        }
+
+        .navbar-brand-text small {
+            display: block;
+            font-size: 11px;
+            font-weight: var(--font-weight-normal);
+            opacity: .8;
+        }
+
+        .navbar .nav-link {
+            color: var(--white-color);
+            font-weight: var(--font-weight-medium);
+            font-size: var(--menu-font-size);
+            margin: 0 12px;
+            position: relative;
+        }
+
+        .navbar.scrolled .nav-link {
+            color: var(--dark-color);
+        }
+
+        .navbar .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 2px;
+            background: var(--custom-btn-bg-color);
+            transition: width .25s ease;
+        }
+
+        .navbar .nav-link:hover::after,
+        .navbar .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* ---------- hero (exactly like index) ---------- */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: linear-gradient(rgba(11, 44, 70, .35), rgba(11, 44, 70, .72)), url('https://hamat-a1q8.onrender.com/images/Hos.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .hero-section svg {
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 5;
+        }
+
+        .hero-section>svg {
+            top: 0;
+        }
+
+        .hero-section .container+svg {
+            bottom: -1px;
+            top: auto;
+        }
+
+        .hero-section .row {
+            position: relative;
+            z-index: 22;
+        }
+
+        .hero-eyebrow {
+            color: #BFE1F2;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            font-size: .85rem;
+        }
+
+        .cd-headline {
+            font-size: clamp(2rem, 4.2vw, 3rem);
+        }
+
+        .cd-headline .cd-words-wrapper {
+            display: inline-block;
+            position: relative;
+            vertical-align: top;
+        }
+
+        .cd-headline b {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            color: var(--custom-btn-bg-color);
+            white-space: nowrap;
+        }
+
+        .cd-headline b.is-visible {
+            position: relative;
+            opacity: 1;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, .95);
+            border-radius: var(--border-radius-medium);
+            padding: 1.6rem;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, .25);
+        }
+
+        #ecg-line {
+            width: 100%;
+            height: 70px;
+            display: block;
+        }
+
+        #ecg-path {
+            stroke: var(--custom-btn-bg-color);
+            stroke-width: 2.5;
+            fill: none;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw 3s linear infinite;
+        }
+
+        @keyframes draw {
+            0% {
+                stroke-dashoffset: 1000;
+            }
+
+            70% {
+                stroke-dashoffset: 0;
+            }
+
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .hero-card .vc-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: .9rem;
+            padding: .4rem 0;
+            border-top: 1px dashed rgba(11, 44, 70, .12);
+        }
+
+        .hero-card .vc-row:first-of-type {
+            border-top: none;
+        }
+
+        /* ---------- legal notice ---------- */
+        .notice-card {
+            background: var(--section-bg-color);
+            border-left: 5px solid var(--custom-btn-bg-color);
+            border-radius: var(--border-radius-small);
+            padding: 2rem 2.2rem;
+        }
+
+        .notice-card h5 {
+            font-size: var(--h6-font-size);
+        }
+
+        .notice-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0;
+        }
+
+        .notice-list li {
+            padding: .6rem 0;
+            border-top: 1px dashed rgba(11, 44, 70, .12);
+            font-size: .95rem;
+            color: var(--dark-color);
+        }
+
+        .notice-list li:first-child {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .notice-list strong {
+            color: var(--primary-color);
+        }
+
+        /* ---------- category cards ---------- */
+        .med-card {
+            background: #fff;
+            border-radius: var(--border-radius-medium);
+            overflow: hidden;
+            height: 100%;
+            box-shadow: 0 10px 30px rgba(11, 44, 70, .08);
+            transition: transform .3s ease, box-shadow .3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .med-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 50px rgba(11, 44, 70, .15);
+        }
+
+        .med-card img {
+            height: 170px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .med-card .body {
+            padding: 1.4rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .med-card .body p {
+            flex: 1;
+            font-size: .95rem;
+        }
+
+        .rx-badge {
+            display: inline-block;
+            background: #FFF1E0;
+            color: #B5651D;
+            font-size: .72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            padding: 4px 10px;
+            border-radius: var(--border-radius-large);
+            margin-bottom: .6rem;
+        }
+
+        /* ---------- upload form ---------- */
+        .upload-card {
+            background: #fff;
+            border-radius: var(--border-radius-medium);
+            box-shadow: 0 10px 30px rgba(11, 44, 70, .08);
+            padding: 2.4rem;
+        }
+
+        .upload-card .form-control,
+        .upload-card .form-select {
+            border-radius: var(--border-radius-small);
+            border: 1px solid rgba(11, 44, 70, .15);
+            padding: 12px 16px;
+        }
+
+        .upload-card label {
+            font-weight: 600;
+            font-size: .92rem;
+            margin-bottom: .4rem;
+            display: block;
+        }
+
+        .upload-card button.form-control {
+            background: var(--custom-btn-bg-color);
+            color: #fff;
+            font-weight: 700;
+            border-radius: var(--border-radius-large);
+            text-transform: uppercase;
+            font-size: var(--btn-font-size);
+            cursor: pointer;
+            border: none;
+            padding: 14px;
+            margin-top: .5rem;
+        }
+
+        .upload-card button.form-control:hover {
+            background: var(--custom-btn-bg-hover-color);
+        }
+
+        /* ---------- cant find band ---------- */
+        .wave-band {
+            background: var(--secondary-color);
+            color: #fff;
+            position: relative;
+            padding: 80px 0;
+        }
+
+        .wave-band h2,
+        .wave-band p {
+            color: #fff;
+        }
+
+        .wave-band p {
+            opacity: .85;
+        }
+
+        .wave-svg-top,
+        .wave-svg-bottom {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            line-height: 0;
+        }
+
+        .wave-svg-top {
+            top: -1px;
+        }
+
+        .wave-svg-bottom {
+            bottom: -1px;
+        }
+
+        /* ---------- footer ---------- */
+        .site-footer {
+            background: var(--secondary-color);
+            color: #cfe0ec;
+            padding-top: 90px;
+            position: relative;
+        }
+
+        .site-footer h5 {
+            color: #fff;
+        }
+
+        .site-footer a {
+            color: #cfe0ec;
+        }
+
+        .site-footer a:hover {
+            color: var(--custom-btn-bg-color);
+        }
+
+
+        .footer-links a {
+            display: block;
+            margin-bottom: .6rem;
+        }
+
+        .social-icon.footer-social {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+        }
+
+        .social-icon-link {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .85rem;
+        }
+
+        .footer-social .social-icon-link {
+            background: rgba(255, 255, 255, .08);
+            color: #fff;
+        }
+
+        .footer-social .social-icon-link:hover {
+            background: var(--custom-btn-bg-color);
+        }
+
+        .copyright-text {
+            font-size: .85rem;
+            opacity: .75;
+        }
+
+        /* ---------- chat widget ---------- */
+        .chat-fab {
+            position: fixed;
+            bottom: 26px;
+            right: 26px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--custom-btn-bg-color);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 14px 30px rgba(11, 44, 70, .3);
+            z-index: 1040;
+            border: none;
+            transition: all .25s ease;
+        }
+
+        .chat-fab:hover {
+            background: var(--custom-btn-bg-hover-color);
+            transform: translateY(-3px);
+        }
+
+        .chat-window {
+            position: fixed;
+            bottom: 100px;
+            right: 26px;
+            width: 320px;
+            max-width: calc(100vw - 40px);
+            background: #fff;
+            border-radius: var(--border-radius-medium);
+            box-shadow: 0 20px 50px rgba(11, 44, 70, .25);
+            z-index: 1040;
+            overflow: hidden;
+            display: none;
+        }
+
+        .chat-window.show {
+            display: block;
+        }
+
+        .chat-window-header {
+            background: var(--secondary-color);
+            color: #fff;
+            padding: 1rem 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: .7rem;
+        }
+
+        .chat-window-header img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .chat-window-body {
+            padding: 1.2rem;
+        }
+
+        .chat-bubble {
+            background: var(--section-bg-color);
+            border-radius: var(--border-radius-small);
+            padding: .8rem 1rem;
+            font-size: .9rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ---------- mobile fix: hero & spacing ---------- */
+        @media (max-width: 991px) {
+            .navbar {
+                top: 0;
+            }
+
+            .top-bar {
+                display: none;
+            }
+
+            .navbar .nav-link {
+                color: #fff;
+            }
+
+            .hero-section {
+                min-height: 92vh;
+                padding: 80px 0 40px;
+            }
+
+            .hero-section .container {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .hero-card {
+                padding: 1.2rem;
+            }
+
+            #ecg-line {
+                height: 50px;
+            }
+
+            .hero-card .vc-row {
+                font-size: .8rem;
+            }
+
+            .cd-headline {
+                font-size: 1.8rem;
+            }
+
+            .section-padding {
+                padding: 60px 0;
+            }
+
+            .med-card img {
+                height: 140px;
+            }
+
+            .site-footer {
+                padding-top: 50px;
+            }
+
+            .notice-card {
+                padding: 1.2rem;
+            }
+
+            .upload-card {
+                padding: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-section {
+                min-height: 86vh;
+                padding: 70px 0 20px;
+            }
+
+            .cd-headline {
+                font-size: 1.5rem;
+            }
+
+            .hero-card {
+                padding: 1rem;
+            }
+
+            .hero-card .vc-row {
+                font-size: .75rem;
+                padding: .3rem 0;
+            }
+
+            .custom-btn {
+                padding: 10px 22px;
+                font-size: 12px;
+            }
+
+            .med-card .body {
+                padding: 1rem;
+            }
+
+            .med-card img {
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar d-none d-lg-block">
+        <div class="container d-flex justify-content-between">
+            <div><i class="bi bi-telephone me-1"></i><a href="tel:+254713024918">+254 713 024 918</a>
+                &nbsp;&nbsp;<i class="bi bi-envelope me-1"></i><a
+                    href="mailto:info@hamathealthcare.com">info@hamathealthcare.com</a></div>
+            <div><i class="bi bi-clock me-1"></i>Opening Hours: Mon–Sun 24/7</div>
+        </div>
+    </div>
+
+    <main>
+
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <span class="navbar-brand-image d-inline-flex align-items-center justify-content-center"
+                        style="width:44px;height:44px;">
+                        <img src="assets/images/Logo.png" alt="Hamat Healthcare Logo"
+                            style="width: 44px; height: 44px; object-fit: contain;">
+                    </span>
+                    <span class="navbar-brand-text">Hamat<small>Healthcare</small></span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-lg-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contacts</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="medicine.html">Pharmacy</a></li>
+                    </ul>
+                    <div class="d-none d-lg-block ms-lg-3">
+                        <a class="btn custom-btn custom-border-btn btn-sm"
+                            href="https://wa.me/254713024918?text=Hello%20Hamat%20Healthcare,%20I%20would%20like%20to%20book%20an%20appointment."
+                            target="_blank">Book Appointment</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- HERO - exactly like index.html -->
+        <header class="hero-section" id="home">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#0B2C46"
+                    d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,0L0,0Z">
+                </path>
+            </svg>
+
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-5 mb-lg-0 reveal">
+                        <div class="hero-eyebrow mb-3">Fast · Reliable · Safe</div>
+                        <h2 class="text-white">Welcome to</h2>
+                        <h1 class="cd-headline text-white mb-4 pb-2">
+                            <span>Pharmacy</span>
+                            <span class="cd-words-wrapper" id="rotWrap" style="min-width:230px;">
+                                <b class="is-visible">Online</b>
+                                <b>Fast</b>
+                                <b>Available 24/7</b>
+                            </span>
+                        </h1>
+                        <div class="custom-btn-group d-flex flex-wrap align-items-center gap-3">
+                            <button class="btn custom-btn" data-bs-toggle="modal" data-bs-target="#bookModal">Book
+                                Appointment</button>
+                            <a href="#categories" class="link" style="color:var(--white-color);">Browse Categories</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 reveal">
+                        <div class="hero-card">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <strong>Live Care Status</strong>
+                                <span class="badge rounded-pill"
+                                    style="background:var(--section-bg-color);color:var(--primary-color);">Pharmacy
+                                    Open</span>
+                            </div>
+                            <svg id="ecg-line" viewBox="0 0 400 70" preserveAspectRatio="none">
+                                <path id="ecg-path"
+                                    d="M0,35 L40,35 L55,8 L70,62 L85,35 L140,35 L155,18 L170,52 L185,35 L400,35" />
+                            </svg>
+                            <div class="vc-row"><span>Current date &amp; time</span><strong id="liveDateTime">—</strong>
+                            </div>
+                            <div class="vc-row"><span>Doctors available</span><strong
+                                    style="color:var(--custom-btn-bg-color)">● Available</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ffffff"
+                    d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L0,320Z">
+                </path>
+            </svg>
+        </header>
+
+        <!-- LEGAL NOTICE -->
+        <section class="section-padding pb-0">
+            <div class="container">
+                <div class="col-lg-10 mx-auto reveal">
+                    <div class="notice-card">
+                        <h5><i class="bi bi-shield-exclamation me-2" style="color:var(--custom-btn-bg-color);"></i>
+                            Important Legal &amp; Medical Notice</h5>
+                        <ul class="notice-list">
+                            <li><strong>1. Not a Substitute:</strong> This service is for inquiry and information
+                                purposes only. It does not replace a consultation with a licensed healthcare
+                                provider.</li>
+                            <li><strong>2. Prescription Medicines:</strong> Under Kenyan law, prescription-only
+                                medicines require a valid prescription. All prescriptions are verified by a licensed
+                                pharmacist before processing.</li>
+                            <li><strong>3. Legal Compliance:</strong> Hamat Healthcare operates in accordance with the
+                                <em>Pharmacy and Poisons Act (Cap 244)</em> and PPB guidelines.
+                            </li>
+                            <li><strong>4. Privacy:</strong> Your information is handled per the <em>Data Protection
+                                    Act, 2019</em>.</li>
+                            <li><strong>5. Delivery:</strong> Inquiries leading to supply: orders valued at KSh 2,000
+                                and above qualify for free delivery.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIES -->
+        <section class="section-padding" id="categories">
+            <div class="container">
+                <div class="col-lg-7 mx-auto text-center mb-5 reveal">
+                    <div class="hero-eyebrow" style="color:var(--custom-btn-bg-color);">Browse by Category</div>
+                    <h2 class="mt-2">Contact Us on WhatsApp for the Following Categories</h2>
+                </div>
+                <div class="row g-4">
+
+                    <div class="col-md-6 col-lg-3 reveal">
+                        <div class="med-card">
+                            <img src="https://hamat-a1q8.onrender.com/images/Painkillers.jpeg" alt="Painkillers">
+                            <div class="body">
+                                <h5>Painkillers</h5>
+                                <p>For headaches, fever, and minor pain relief.</p>
+                                <a class="btn-whatsapp mt-2 align-self-start"
+                                    href="https://wa.me/254713024918?text=Hello%20Hamat%20Healthcare,%20I%20would%20like%20to%20inquire%20about%20Painkillers."
+                                    target="_blank"><i class="bi bi-whatsapp"></i>Inquire via WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 reveal">
+                        <div class="med-card">
+                            <img src="https://hamat-a1q8.onrender.com/images/Antibiotics.jpeg" alt="Antibiotics">
+                            <div class="body">
+                                <span class="rx-badge">Rx Required</span>
+                                <h5>Antibiotics</h5>
+                                <p>For bacterial infections — requires valid prescription.</p>
+                                <a class="btn-whatsapp mt-2 align-self-start"
+                                    href="https://wa.me/254713024918?text=Hello%20Hamat%20Healthcare,%20I%20would%20like%20to%20inquire%20about%20Antibiotics."
+                                    target="_blank"><i class="bi bi-whatsapp"></i>Inquire via WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 reveal">
+                        <div class="med-card">
+                            <img src="https://hamat-a1q8.onrender.com/images/Diabetes.jpeg" alt="Diabetes">
+                            <div class="body">
+                                <h5>Diabetes</h5>
+                                <p>Insulin, blood sugar monitors, and oral medications.</p>
+                                <a class="btn-whatsapp mt-2 align-self-start"
+                                    href="https://wa.me/254713024918?text=Hello%20Hamat%20Healthcare,%20I%20would%20like%20to%20inquire%20about%20Diabetes%20medication."
+                                    target="_blank"><i class="bi bi-whatsapp"></i>Inquire via WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 reveal">
+                        <div class="med-card">
+                            <img src="https://hamat-a1q8.onrender.com/images/Hypertension.jpeg" alt="Hypertension">
+                            <div class="body">
+                                <h5>Hypertension</h5>
+                                <p>Blood pressure medications and monitoring support.</p>
+                                <a class="btn-whatsapp mt-2 align-self-start"
+                                    href="https://wa.me/254713024918?text=Hello%20Hamat%20Healthcare,%20I%20would%20like%20to%20inquire%20about%20Hypertension%20medication."
+                                    target="_blank"><i class="bi bi-whatsapp"></i>Inquire via WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 reveal">
+                        <div class="med-card">
+                            <img src="https://hamat-a1q8.onrender.com/images/joint%20and%20muscle%20care.jpg"
+                                alt="Joint & Muscle Care">
+                            <div class="body">
+                                <h5>Joint &amp; Muscle Care</h5>
+                                <p>For arthritis, sprains, back pain, and inflammation.</p>
+                                <a class="btn-whatsapp mt-2 align-self-start"
+                                    href="https://wa.me/254713024918?text=Hello%20Hamat%20Healthcare,%20I%20would%20like%20to%20inquire%20about%20Joint%20%26%20Muscle%20Care."
+                                    target="_blank"><i class="bi bi-whatsapp"></i>Inquire via WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 reveal">
+                        <div class="med-card">
+                            <img src="https://hamat-a1q8.onrender.com/images/vitamins%20annd%20supplements.jpeg"
+                                alt="Vitamins & Supplements">
+                            <div class="body">
+                                <h5>Vitamins &amp; Supplements</h5>
+                                <p>Boost immunity, energy, and overall wellness.</p>
+                                <a class="btn-whatsapp mt-2 align-self-start"
+                                    href="https://wa.me/254713024918?text=Hello%20Hamat%20Healthcare,%20I%20would%20like%20to%20inquire%20about%20Vitamins%20%26%20Supplements."
+                                    target="_blank"><i class="bi bi-whatsapp"></i>Inquire via WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 reveal">
+                        <div class="med-card">
+                            <img src="https://hamat-a1q8.onrender.com/images/pediatric.jpeg" alt="Pediatric Medicines">
+                            <div class="body">
+                                <h5>Pediatric Medicines</h5>
+                                <p>Safe and accurate dosing for children and infants.</p>
+                                <a class="btn-whatsapp mt-2 align-self-start"
+                                    href="https://wa.me/254713024918?text=Hello%20Hamat%20Healthcare,%20I%20would%20like%20to%20inquire%20about%20Pediatric%20Medicines."
+                                    target="_blank"><i class="bi bi-whatsapp"></i>Inquire via WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 reveal">
+                        <div class="med-card">
+                            <img src="https://hamat-a1q8.onrender.com/images/skin%20and%20allergy.jpeg"
+                                alt="Skin & Allergy">
+                            <div class="body">
+                                <h5>Skin &amp; Allergy</h5>
+                                <p>For eczema, rashes, allergies, and dermatological care.</p>
+                                <a class="btn-whatsapp mt-2 align-self-start"
+                                    href="https://wa.me/254713024918?text=Hello%20Hamat%20Healthcare,%20I%20would%20like%20to%20inquire%20about%20Skin%20%26%20Allergy%20care."
+                                    target="_blank"><i class="bi bi-whatsapp"></i>Inquire via WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- UPLOAD PRESCRIPTION -->
+        <section class="section-padding section-bg">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-5 reveal">
+                        <div class="hero-eyebrow" style="color:var(--custom-btn-bg-color);">Have a Prescription?</div>
+                        <h2 class="mt-2 mb-3">Upload Your Prescription</h2>
+                        <p>Submit your prescription and we'll prepare your order for review. A licensed pharmacist
+                            will verify it before anything is dispatched, and we'll confirm cost and availability
+                            with you directly.</p>
+                    </div>
+                    <div class="col-lg-7 reveal">
+                        <div class="upload-card">
+                            <form onsubmit="return handlePrescriptionSubmit(event)">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label>Patient Name</label>
+                                        <input type="text" class="form-control" placeholder="Full name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Phone Number</label>
+                                        <input type="tel" class="form-control" placeholder="07xx xxx xxx" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label>List of Medicines <span
+                                                style="font-weight:400;color:var(--p-color);">(Optional)</span></label>
+                                        <textarea class="form-control" rows="3"
+                                            placeholder="e.g. Paracetamol 500mg, Amoxicillin 250mg"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <label>Upload Prescription (Image or PDF)</label>
+                                        <input type="file" class="form-control" accept="image/*,.pdf" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="form-control">Submit for Review</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div id="rxSuccess" class="alert alert-success mt-3 d-none"><i
+                                    class="bi bi-check-circle me-1"></i>Thanks — your prescription was received. We'll
+                                confirm availability by phone shortly.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAN'T FIND YOUR MEDICINE -->
+        <section class="wave-band">
+            <svg class="wave-svg-top" viewBox="0 0 1440 60" preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill="#EAF3FA" d="M0,32L360,0L720,32L1080,0L1440,32L1440,0L0,0Z"></path>
+            </svg>
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-7 reveal">
+                        <h2 class="mb-3">Can't Find Your Medicine?</h2>
+                        <p class="mb-4">No problem! Send us a message directly on WhatsApp. We'll check availability,
+                            advise on alternatives, and arrange delivery.</p>
+                        <a class="btn-whatsapp" style="font-size:.9rem;padding:14px 30px;"
+                            href="https://wa.me/254713024918?text=Hello%20Hamat%20Healthcare,%20I%20would%20like%20to%20inquire%20about%20a%20medicine."
+                            target="_blank"><i class="bi bi-whatsapp"></i>Inquire via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+            <svg class="wave-svg-bottom" viewBox="0 0 1440 60" preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill="#ffffff" d="M0,32L360,0L720,32L1080,0L1440,32L1440,60L0,60Z"></path>
+            </svg>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 me-auto mb-5 mb-lg-0">
+                    <a class="navbar-brand" href="index.html" style="color:#fff;">
+                        <span class="navbar-brand-image d-inline-flex align-items-center justify-content-center"
+                            style="width:44px;height:44px;"><img src="assets/images/Logo.png"
+                                alt="Hamat Healthcare Logo"
+                                style="width: 44px; height: 44px; object-fit: contain;"></span>
+                        <span class="navbar-brand-text">Hamat<small style="color:#cfe0ec;">Healthcare</small></span>
+                    </a>
+                    <p class="mt-3">Your trusted partner in healthcare, providing quality services for every stage of
+                        life in Ruiru and beyond.</p>
+                    <ul class="social-icon footer-social mb-3">
+                        <li class="social-icon-item"><a href="https://facebook.com/hamathealthcare" target="_blank"
+                                class="social-icon-link"><i class="bi bi-facebook"></i></a></li>
+                        <li class="social-icon-item"><a href="https://twitter.com/hamathealthcare" target="_blank"
+                                class="social-icon-link"><i class="bi bi-twitter-x"></i></a></li>
+                        <li class="social-icon-item"><a href="https://instagram.com/hamathealthcare" target="_blank"
+                                class="social-icon-link"><i class="bi bi-instagram"></i></a></li>
+                        <li class="social-icon-item"><a href="https://linkedin.com/company/hamathealthcare"
+                                target="_blank" class="social-icon-link"><i class="bi bi-linkedin"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="services.html">Services</a>
+                        <a href="medicine.html">Pharmacy</a>
+                        <a href="news.html">News</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6 ms-auto">
+                    <h5 class="mb-4">Contact Us</h5>
+                    <p class="mb-2"><i class="bi bi-geo-alt me-2"></i>Membly, Ruiru Eastern By-Pass</p>
+                    <p class="mb-2"><a href="mailto:info@hamathealthcare.com"><i class="bi bi-envelope me-2"></i>
+                            info@hamathealthcare.com</a></p>
+                    <p class="mb-0"><a href="tel:+254713024918"><i class="bi bi-telephone me-2"></i>+254 713 024
+                            918</a></p>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between border-top py-4 mt-4"
+                style="border-color:rgba(255,255,255,.1) !important;">
+                <p class="copyright-text mb-0">© 2026 Hamat Healthcare. All Rights Reserved.</p>
+                <p class="copyright-text mb-0">Design language inspired by TemplateMo's Tiya Golf Club (free template)
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOOK MODAL -->
+    <div class="modal fade" id="bookModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="background:var(--secondary-color);color:#fff;">
+                    <h5 class="modal-title"><i class="bi bi-calendar2-check me-2"></i>Book an appointment</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form onsubmit="return handleBookingSubmit(event)">
+                        <div class="mb-3"><label class="form-label small">Full name</label><input type="text"
+                                class="form-control" required></div>
+                        <div class="mb-3"><label class="form-label small">Phone number</label><input type="tel"
+                                class="form-control" required></div>
+                        <div class="mb-3">
+                            <label class="form-label small">Service needed</label>
+                            <select class="form-select" required>
+                                <option value="">Choose a service…</option>
+                                <option>Laboratory</option>
+                                <option>Operation Theatre</option>
+                                <option>Geriatric Care</option>
+                                <option>Specialist Consultation</option>
+                                <option>Home Care</option>
+                                <option>Maternal Care</option>
+                                <option>Pharmacy</option>
+                            </select>
+                        </div>
+                        <div class="mb-3"><label class="form-label small">Preferred date</label><input type="date"
+                                class="form-control" required></div>
+                        <button class="btn custom-btn w-100" type="submit">Confirm Appointment</button>
+                    </form>
+                    <div id="bookSuccess" class="alert alert-success mt-3 d-none"><i
+                            class="bi bi-check-circle me-1"></i>Appointment request received — we'll confirm by phone
+                        shortly.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHAT WIDGET -->
+    <button class="chat-fab" id="chatFab"><i class="bi bi-chat-dots-fill"></i></button>
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-window-header">
+            <img src="https://hamat-a1q8.onrender.com/images/Tasneemphoto1.png" alt="Support">
+            <div>
+                <strong>Hamat Support</strong>
+                <div style="font-size:.75rem;opacity:.8;">Usually replies within minutes</div>
+            </div>
+        </div>
+        <div class="chat-window-body">
+            <div class="chat-bubble">Hi! How can we help you? Choose a service and we'll connect you with the right
+                team.</div>
+            <select class="form-select mb-3">
+                <option>Laboratory</option>
+                <option>Operation Theatre</option>
+                <option>Geriatric Care</option>
+                <option>Specialist Consultation</option>
+                <option>Home Care</option>
+                <option>Maternal Care</option>
+                <option>Pharmacy</option>
+            </select>
+            <button class="btn custom-btn w-100"
+                onclick="alert('Thanks! A team member will reach out shortly.')">Confirm</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 30));
+
+        const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); }), { threshold: .15 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+        function handlePrescriptionSubmit(e) {
+            e.preventDefault();
+            document.getElementById('rxSuccess').classList.remove('d-none');
+            e.target.reset();
+            return false;
+        }
+
+        function handleBookingSubmit(e) { e.preventDefault(); document.getElementById('bookSuccess').classList.remove('d-none'); e.target.reset(); return false; }
+
+        const chatFab = document.getElementById('chatFab');
+        const chatWindow = document.getElementById('chatWindow');
+        chatFab.addEventListener('click', () => chatWindow.classList.toggle('show'));
+
+        // rotating headline (from index)
+        (function () {
+            const words = document.querySelectorAll('#rotWrap b');
+            let i = 0;
+            setInterval(() => {
+                words[i].classList.remove('is-visible');
+                i = (i + 1) % words.length;
+                words[i].classList.add('is-visible');
+            }, 2200);
+        })();
+
+        // live date & time in the hero care-status card
+        (function () {
+            const el = document.getElementById('liveDateTime');
+            function tick() {
+                const now = new Date();
+                const dateStr = now.toLocaleDateString(undefined, { weekday: 'short', day: '2-digit', month: 'short', year: 'numeric' });
+                const timeStr = now.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+                el.textContent = dateStr + ' · ' + timeStr;
+            }
+            tick();
+            setInterval(tick, 1000);
+        })();
+    </script>
+</body>
+
+</html>
